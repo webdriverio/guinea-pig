@@ -1,0 +1,25 @@
+{
+  "name": "guineapig",
+  "version": "1.0.0",
+  "description": "Guinea pig website for internal e2e testing purposes",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webdriverio/guinea-pig.git"
+  },
+  "author": "Christian Bromann <christian@saucelabs.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webdriverio/guinea-pig/issues"
+  },
+  "homepage": "https://github.com/webdriverio/guinea-pig#readme",
+  "dependencies": {
+    "aws-sdk": "^2.525.0",
+    "bower": "^1.8.8",
+    "mime-types": "^2.1.24",
+    "recursive-readdir": "^2.2.2"
+  }
+}
