@@ -21,7 +21,7 @@ const IGNORE_FILE_SUFFIX = ['*.rb', (file) => (
     const files = await readDir(ROOT_DIR, IGNORE_FILE_SUFFIX)
 
     console.log(`Uploading ${ROOT_DIR} to S3 bucket ${BUCKET_NAME}`)
-    await Promise.all(files.map((file) => new Promise((resolve, reject) => s3.upload({
+    await Promise.all(files.filter((file) => typeof mime.lookup(file) === 'string').map((file) => new Promise((resolve, reject) => s3.upload({
         Bucket: BUCKET_NAME,
         Key: file.replace(ROOT_DIR + '/', ''),
         Body: fs.createReadStream(file),
