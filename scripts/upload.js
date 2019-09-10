@@ -8,18 +8,19 @@ const { S3, CloudFront } = require('aws-sdk')
 
 const DISTRIBUTION_ID = process.env.DISTRIBUTION_ID
 const BUCKET_NAME = 'guinea-pig.webdriver.io'
+const ROOT_DIR = path.resolve(__dirname, '..')
 const UPLOAD_OPTIONS = { partSize: 10 * 1024 * 1024, queueSize: 1 }
 const IGNORE_FILE_SUFFIX = ['*.rb', 'node_modules/**/*', './.git']
 
 /* eslint-disable no-console */
 ;(async () => {
     const s3 = new S3()
-    const files = await readDir(__dirname, IGNORE_FILE_SUFFIX)
+    const files = await readDir(ROOT_DIR, IGNORE_FILE_SUFFIX)
 
-    console.log(`Uploading ${__dirname} to S3 bucket ${BUCKET_NAME}`)
+    console.log(`Uploading ${ROOT_DIR} to S3 bucket ${BUCKET_NAME}`)
     await Promise.all(files.map((file) => new Promise((resolve, reject) => s3.upload({
         Bucket: BUCKET_NAME,
-        Key: file.replace(__dirname + '/', ''),
+        Key: file.replace(ROOT_DIR + '/', ''),
         Body: fs.createReadStream(file),
         ContentType: mime.lookup(file),
         ACL: 'public-read'
