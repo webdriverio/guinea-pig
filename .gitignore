@@ -59,3 +59,7 @@ typings/
 
 # next.js build output
 .next
+
+*.zip
+components
+.DS_Store
