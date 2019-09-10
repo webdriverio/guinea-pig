@@ -10,7 +10,7 @@ const DISTRIBUTION_ID = process.env.DISTRIBUTION_ID
 const BUCKET_NAME = 'guinea-pig.webdriver.io'
 const ROOT_DIR = path.resolve(__dirname, '..')
 const UPLOAD_OPTIONS = { partSize: 10 * 1024 * 1024, queueSize: 1 }
-const IGNORE_FILE_SUFFIX = ['*.rb', 'node_modules/**/*', './.git']
+const IGNORE_FILE_SUFFIX = ['*.rb', './.git', (file) => file.includes('/node_modules/')]
 
 /* eslint-disable no-console */
 ;(async () => {
