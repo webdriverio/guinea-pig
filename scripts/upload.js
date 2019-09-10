@@ -10,7 +10,10 @@ const DISTRIBUTION_ID = process.env.DISTRIBUTION_ID
 const BUCKET_NAME = 'guinea-pig.webdriver.io'
 const ROOT_DIR = path.resolve(__dirname, '..')
 const UPLOAD_OPTIONS = { partSize: 10 * 1024 * 1024, queueSize: 1 }
-const IGNORE_FILE_SUFFIX = ['*.rb', './.git', (file) => file.includes('/node_modules/')]
+const IGNORE_FILE_SUFFIX = ['*.rb', (file) => (
+  file.includes('/node_modules/') ||
+  file.includes('/.git/')
+)]
 
 /* eslint-disable no-console */
 ;(async () => {
@@ -49,6 +52,9 @@ const IGNORE_FILE_SUFFIX = ['*.rb', './.git', (file) => file.includes('/node_mod
     console.log(`Created new invalidation with ID ${Invalidation.Id}`)
 })().then(
     () => console.log('Successfully updated guinea-pig.webdriver.io'),
-    (err) => console.error(`Error uploading to guinea-pig.webdriver.io: ${err.stack}`)
+    (err) => {
+      console.error(`Error uploading to guinea-pig.webdriver.io: ${err.stack}`)
+      process.exit(1)
+    }
 )
 /* eslint-enable no-console */
