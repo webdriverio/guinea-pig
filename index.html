@@ -102,6 +102,7 @@
             <input type="submit" value="send" class="sendBtn">
         </form>
         <div class="sometext">some text</div>
+        <div id="useragent"></div>
         <div class="sometextlater"></div>
         <div class="opacity">Hello! I am not visible anyway</div>
         <script>
@@ -193,6 +194,8 @@
             $('.searchinput').val( "Dropped!" );
           }
         });
+
+        $('#useragent').html(navigator.userAgent)
 
         setTimeout(function() {
             var newElement = $('<div />').addClass('lateElem').html('Sorry, I\'m late!');
