@@ -10,11 +10,10 @@ on:
 jobs:
   linux:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: 14
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
+        with:
+          node-version: 14
       - run: npm install
       - run: ./scripts/upload.js
