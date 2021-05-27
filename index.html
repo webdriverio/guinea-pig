@@ -21,6 +21,7 @@
         <a href="./two.html" id="secondPageLink">two</a>
         <a href="https://github.com" id="githubRepo" class="clearfix" data-foundBy="link text">GitHub Repo</a>
         <a id="newWindow" href="./two.html" target="_blank" data-foundBy="partial link text">open new tab</a>
+        <button id="parentButton">Open Popup</button>
 
         <hr>
 
@@ -214,9 +215,13 @@
             $('.invisibleParent').removeClass('hidden');
         },2000);
 
-        document.getElementById('selectTest').addEventListener('change', function(event) {
+        document.getElementById('selectTest').addEventListener('change', (event) => {
             document.getElementById('selectedValue').textContent = event.target.value;
         }, false)
+
+        document.getElementById("parentButton").addEventListener("click", () => {
+            window.open("./child.html", "TestPopup","resizable=no,scrollbars=no,status=no,width=500,height=300");
+        })
 
     </script>
 
