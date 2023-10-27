@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/webdriverio/guinea-pig#readme",
   "dependencies": {
-    "aws-sdk": "^2.814.0",
+    "aws-sdk": "^2.1482.0",
     "bower": "^1.8.8",
     "mime-types": "^2.1.24",
     "recursive-readdir": "^2.2.3"
