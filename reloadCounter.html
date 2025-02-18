@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Reload Counter</title>
+</head>
+<body>
+	<section id="reloadCounter">
+		<h3><a href="#reloadCounter">Reload Counter</a></h3>
+		<label for="counter">Reloads</label><input type="number" id="counter" value="0" disabled>
+		<button id="reset">reset!</button>
+	</section>
+	<script>
+		const input = document.querySelector(`input`);
+		const reset = document.querySelector(`button`);
+
+		const reloads = parseInt(localStorage.getItem("reloadCounter") ?? "0");
+		localStorage.setItem("reloadCounter", String(reloads+1));
+		input.valueAsNumber = reloads;
+		
+		reset.onclick = () => {
+			input.valueAsNumber = 0;
+			localStorage.clear();
+		};
+	</script>
+</body>
+</html>
