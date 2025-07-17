@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFrame in Shadow DOM</title>
+</head>
+<body>
+    <h1>IFrame in Shadow DOM</h1>
+    <div id="wrapper">
+        <template shadowrootmode="open">
+            <h2 id="headlineInShadow">Headline in Shadow Root</h2>
+            <iframe src="iframeTarget.html"></iframe>
+        </template>
+    </div>
+</body>
+</html>
