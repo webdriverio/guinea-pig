@@ -4,7 +4,7 @@
   "description": "Guinea pig website for internal e2e testing purposes",
   "main": "index.js",
   "scripts": {
-    "postinstall": "bower install"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,6 @@
   "homepage": "https://github.com/webdriverio/guinea-pig#readme",
   "dependencies": {
     "aws-sdk": "^2.1482.0",
-    "bower": "^1.8.8",
     "mime-types": "^2.1.24",
     "recursive-readdir": "^2.2.3"
   }
