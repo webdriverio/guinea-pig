@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Navbar</title>
+	<style>
+		.navbar-sidebar { display: none; }
+		.navbar-sidebar.open { display: block; }
+	</style>
+</head>
+<body>
+	<h1>Navbar</h1>
+	<button type="button" aria-label="Toggle navigation bar">&#9776;</button>
+	<nav class="navbar-sidebar">
+		<ul>
+			<li><a class="menu__link" href="index.html">Home</a></li>
+			<li><a class="menu__link" href="two.html">Docs</a></li>
+			<li><a class="menu__link" href="contribute.html">Contribute</a></li>
+			<li><a class="menu__link" href="foo.html">Community</a></li>
+		</ul>
+	</nav>
+	<script>
+		document.querySelector('[aria-label="Toggle navigation bar"]').addEventListener('click', () => {
+			document.querySelector('.navbar-sidebar').classList.toggle('open');
+		});
+	</script>
+</body>
+</html>
