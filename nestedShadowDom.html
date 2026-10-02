@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Nested Shadow DOM</title>
+</head>
+<body>
+	<h1>Nested Shadow DOM</h1>
+	<todo-app></todo-app>
+
+	<script>
+		customElements.define('todo-form', class extends HTMLElement {
+			constructor() {
+				super();
+				this.attachShadow({ mode: 'open' }).innerHTML = `
+					<input class="new-todo" placeholder="What needs to be done?" autofocus>
+				`;
+			}
+		});
+
+		customElements.define('todo-app', class extends HTMLElement {
+			constructor() {
+				super();
+				this.attachShadow({ mode: 'open' }).innerHTML = `
+					<header>
+						<h2>todos</h2>
+						<todo-form></todo-form>
+					</header>
+				`;
+			}
+		});
+	</script>
+</body>
+</html>
